@@ -1,17 +1,31 @@
 package com.github.julianomachadoo.workshopmongo.dto;
 
+import com.github.julianomachadoo.workshopmongo.domain.User;
+
 import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collector;
 
 public class UserDTO implements Serializable {
+    private String id;
     private String name;
     private String email;
 
     public UserDTO() {
     }
 
-    public UserDTO(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public UserDTO(User user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.email = user.getEmail();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
